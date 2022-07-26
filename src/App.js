@@ -1,11 +1,21 @@
+import React from "react";
 import "./App.css";
+import Home from "./components/Home";
+import { Routes , Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import AddUser from "./components/AddUser";
+
+
+
 
 function App() {
   return (
     <>
-      <h2 className="bg-dark text-center text-light p-2">
-        React CRUD Application
-      </h2>
+    <Navbar/>
+    <Routes>
+      <Route exact path="/" element={<Home/>}></Route>
+      <Route exact path="/adduser" element={<AddUser/>}></Route>
+    </Routes>
     </>
   );
 }
