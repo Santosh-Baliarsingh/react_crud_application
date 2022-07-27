@@ -15,9 +15,6 @@ export default function Home() {
   };
   return (
     <>
-      {/* <h2 className="bg-dark text-center text-light p-2">
-        React CRUD Application
-      </h2> */}
       <div className="container-fluid table-responsive ">
         <table className="table my-3 border rounded shadow table-bordered table-hover">
           <thead className="table-dark text-center">
@@ -39,9 +36,15 @@ export default function Home() {
                 <td>{user.email}</td>
                 <td>{user.phone}</td>
                 <td>
-                 <button className="btn btn-outline-primary"><i className="bi bi-eye"></i></button>
-                 <button className="btn btn-outline-info ms-2"><i className="bi bi-pen"></i></button>
-                 <button className="btn btn-outline-danger ms-2"><i className="bi bi-trash3"></i></button>
+                  <button className="btn btn-outline-primary">
+                    <i className="bi bi-eye"></i>
+                  </button>
+                  <button className="btn btn-outline-success ms-2">
+                    <i className="bi bi-pen"></i>
+                  </button>
+                  <button className="btn btn-outline-danger ms-2">
+                    <i className="bi bi-trash3"></i>
+                  </button>
                 </td>
               </tr>
             ))}
