@@ -17,7 +17,7 @@ You may also see any lint errors in the console.
 ## To run Json Server
 ### `json-server --watch user.json --port=4000`
 
-Runs the json server with [http://localhost:4000/users] to view the json data.
+Runs the json server with [http://localhost:4000/users](http://localhost:4000/users) to view the json data.
 
 ### `npm test`
 
