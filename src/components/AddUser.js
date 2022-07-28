@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function AddUser() {
   let initialData = {
-    id: "null",
+    id: 0,
     name: "",
     username: "",
     email: "",
@@ -93,9 +93,9 @@ export default function AddUser() {
                 <button type="submit" className="btn btn-outline-success w-25">
                   Submit
                 </button>
-                <button type="cancel" className="btn btn-outline-danger w-25">
+                <Link to="/" className="btn btn-outline-danger w-25">
                   Cancel
-                </button>
+                </Link>
               </div>
             </form>
           </div>
