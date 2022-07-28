@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-// import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   const [users, setUsers] = useState([]);
@@ -9,9 +9,16 @@ export default function Home() {
     loadUsers();
   }, []);
 
+  // Load User List Function
   const loadUsers = async () => {
     const result = await axios.get("http://localhost:4000/users");
     setUsers(result.data);
+  };
+
+  // Delete User Function
+  const deleteUser = async (id) => {
+    await axios.delete(`http://localhost:4000/users/${id}`);
+    loadUsers(); // After delete user again calling the loadUser Function to load the existing User List
   };
   return (
     <>
@@ -36,13 +43,25 @@ export default function Home() {
                 <td>{user.email}</td>
                 <td>{user.phone}</td>
                 <td>
-                  <button className="btn btn-outline-primary">
+                  <Link
+                    title="View User Profile"
+                    to={`/viewuser/${user.id}`}
+                    className="btn btn-outline-primary"
+                  >
                     <i className="bi bi-eye"></i>
-                  </button>
-                  <button className="btn btn-outline-success ms-2">
+                  </Link>
+                  <Link
+                    title="Edit User Profile"
+                    to={`/edituser/${user.id}`}
+                    className="btn btn-outline-success ms-2"
+                  >
                     <i className="bi bi-pen"></i>
-                  </button>
-                  <button className="btn btn-outline-danger ms-2">
+                  </Link>
+                  <button
+                    title="Delete User Profile"
+                    onClick={() => deleteUser(user.id)}
+                    className="btn btn-outline-danger ms-2"
+                  >
                     <i className="bi bi-trash3"></i>
                   </button>
                 </td>
